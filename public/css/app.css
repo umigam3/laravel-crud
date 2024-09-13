@@ -53,8 +53,20 @@ a {
     color: black;
 }
 
-a.delete {
+button.delete {
     color: red;
+    background-color: white;
+    border: 0;
+}
+
+button.delete:hover {
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .title {

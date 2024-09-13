@@ -68,4 +68,12 @@ class ProcedureController extends Controller
         return redirect(route('index'));
     }
 
+    public function delete($id)
+    {
+        $procedure = Procedure::findOrFail($id);
+        $procedure->delete();
+
+        return redirect(route('index'));    
+    }
+
 }

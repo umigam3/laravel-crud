@@ -10,3 +10,4 @@ Route::get('/procedure/{id}', [ProcedureController::class, 'updateForm'])->name(
 Route::post('/procedure/{id}', [ProcedureController::class, 'updateProcedure'])->name('updated');
 Route::post('/procedure', [ProcedureController::class, 'createProcedure'])->name('created');
 
+Route::delete('/procedures/{id}', [ProcedureController::class, 'delete'])->name('delete');
