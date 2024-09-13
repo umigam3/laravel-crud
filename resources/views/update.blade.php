@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Edit Procedure</title>
+    <title>Editar tràmit</title>
 
-    <link href="{{ asset('css/styles.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -13,24 +13,31 @@
             @csrf
             @method('post')
             
-            <label for="type">Type:</label>
-            <input type="text" name="type" id="type" value="{{ old('type', $procedure->type) }}" required>
+            <div>
+                <label for="type">Tipus</label>
+                <input type="text" name="type" id="type" value="{{ old('type', $procedure->type) }}" required>    
+            </div>
     
-            <label for="state">Status:</label>
-            <select name="state" id="state" required>
-                <option value=0 {{ old('state', $procedure->state) == 0 ? 'selected' : '' }}>Pending</option>
-                <option value=1 {{ old('state', $procedure->state) == 1 ? 'selected' : '' }}>In Progress</option>
-                <option value=2 {{ old('state', $procedure->state) == 2 ? 'selected' : '' }}>Completed</option>
-            </select>
-            
-            <label for="dni">DNI:</label>
-            <input name="dni" id="dni" value="{{ old('dni', $procedure->dni) }}" required>
+            <div>
+                <label for="state">Estat</label>
+                <select name="state" id="state" required>
+                    <option value=0 {{ old('state', $procedure->state) == 0 ? 'selected' : '' }}>Pending</option>
+                    <option value=1 {{ old('state', $procedure->state) == 1 ? 'selected' : '' }}>In Progress</option>
+                    <option value=2 {{ old('state', $procedure->state) == 2 ? 'selected' : '' }}>Completed</option>
+                </select>    
+            </div>
+
+            <div>
+                <label for="dni">DNI</label>
+                <input name="dni" id="dni" value="{{ old('dni', $procedure->dni) }}" required>    
+            </div>
                     
-            <button type="submit">Update</button>
+            <button type="submit" class="submit">Actualitzar tràmit</button>
         </form>
-        
-        <a href="{{ route('index') }}">Back to list</a>
-    
+
+        <div class="back">
+            <a href="{{ route('index') }}">Tornar a la llista</a>
+        </div>
     </main>
 </body>
 </html>
