@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Editar tràmit</title>
+    <title>Editar Tràmits - CRUD</title>
 
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('favicon.svg') }}">
+
 
 </head>
 <body>

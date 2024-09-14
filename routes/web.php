@@ -7,6 +7,7 @@ use App\UI\Http\Controllers\ProcedureController;
 Route::get('/procedures', [ProcedureController::class, 'listProcedures'])->name('index');
 Route::get('/procedure/create', [ProcedureController::class, 'createForm'])->name('create');
 Route::get('/procedure/{id}', [ProcedureController::class, 'updateForm'])->name('update');
+Route::get('/procedure/{id}/details', [ProcedureController::class, 'procedureDetails'])->name('details');
 
 // Post methods.
 Route::post('/procedure/{id}', [ProcedureController::class, 'updateProcedure'])->name('updated');

@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Crear tràmit</title>
+    <title>Crear nou Tràmit - CRUD</title>
+
+    <link rel="icon" href="{{ asset('favicon.svg') }}">
 
     <link href="{{ asset('css/form.css') }}" rel="stylesheet">
 </head>

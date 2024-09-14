@@ -34,6 +34,12 @@ class ProcedureController extends Controller
         return view('create');
     }
 
+    public function procedureDetails(int $id)
+    {
+        $procedure = $this->procedureRepository->getProcedure($id);
+        return view('details', compact('procedure'));
+    }
+
     public function updateProcedure(Request $request, $id)
     {
         $request->validate([
