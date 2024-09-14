@@ -6,6 +6,7 @@ use App\Domain\Models\Procedure;
 use App\Domain\Repository\ProcedureRepositoryInterface;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 
 class ProcedureController extends Controller
 {
@@ -16,7 +17,7 @@ class ProcedureController extends Controller
         $this->procedureRepository = $procedureRepository;
     }
 
-    public function getAllProcedures()
+    public function listProcedures()
     {
         $procedures = $this->procedureRepository->getAll();
         return view('procedures', compact('procedures'));
@@ -76,4 +77,27 @@ class ProcedureController extends Controller
         return redirect(route('index'));    
     }
 
+    public function getProcedures(Request $request) 
+    {
+        $states = [
+            'pending' => 0,
+            'inprogress' => 1,
+            'completed' => 2,
+        ];
+    
+        $state = $request->query('state');
+    
+        if ($state !== null) {
+            if (!array_key_exists($state, $states)) {
+                throw new HttpException(400, "The state '{$state}' is not valid. Use 'pending', 'inprogress' o 'completed'.");
+            }
+    
+            $stateValue = $states[$state];
+            $procedures = $this->procedureRepository->getByState($stateValue);
+        } else {
+            $procedures = $this->procedureRepository->getAll();
+        }
+    
+        return response()->json($procedures);
+    }
 }

@@ -14,4 +14,9 @@ class ProcedureRepository implements ProcedureRepositoryInterface
     public function getProcedure(int $id) {
         return Procedure::findOrFail($id);
     }
+
+    public function getByState(int $state) {
+        return Procedure::where('state', $state)->get();
+    }
+
 }
