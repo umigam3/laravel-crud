@@ -3,6 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\UI\Http\Controllers\ProcedureController;
 
+// Redirects
+Route::redirect('/', '/procedures');
+
 // Get methods.
 Route::get('/procedures', [ProcedureController::class, 'listProcedures'])->name('index');
 Route::get('/procedure/create', [ProcedureController::class, 'createForm'])->name('create');

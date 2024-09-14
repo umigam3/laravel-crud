@@ -64,6 +64,15 @@ Follow these steps to set up your Laravel application:
 3. **Environment setup**:
    - Update the `.env` file with your database credentials and other configuration values.
 
+        ```bash
+        DB_CONNECTION=mysql
+        DB_HOST=127.0.0.1
+        DB_PORT=3306
+        DB_DATABASE=your_database
+        DB_USERNAME=root
+        DB_PASSWORD=
+        ```
+
 4. **Run database migrations**:
     ```bash
     php artisan migrate
