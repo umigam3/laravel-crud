@@ -46,6 +46,8 @@ Before you begin, ensure you have met the following requirements:
 3. **Database**: MySQL, PostgreSQL, SQLite, or SQL Server.
 4. **Web Server**: Apache or Nginx.
 
+> **Note:** I used XAMPP to make the local server.
+
 ## Installation Steps
 
 Follow these steps to set up your Laravel application:
